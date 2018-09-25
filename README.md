@@ -1,1 +1,1 @@
-# team-time-tracker
+# Team Time Tracker
