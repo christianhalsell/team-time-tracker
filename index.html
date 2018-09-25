@@ -23,11 +23,13 @@
             padding: 4px 10px;
           }
 
-          .active {
+          .active,
+          .green {
             background-color: lightgreen;
           }
 
-          .inactive {
+          .inactive,
+          .red {
             background-color: red;
             color: #fff;
           }
@@ -46,7 +48,9 @@
         <h1>Team</h1>
         <div id="clock" class="clock">0:00</div>
         <button id="startButton">Start Game Clock</button>
-
+        
+        <button id="allPlayingButton" class="green">All playing</button>
+        <button id="allBenchedButton" class="red">All on bench</button>
         <table id="team" cellpadding="10" cellspacing="0" border="1">
           <thead>
             <td class="player-name">Name</td>
@@ -64,80 +68,80 @@
               id: 1,
               name: 'Isabella',
               number: '7',
-              playing: false,
+              playing: true,
               totalTime: 0
             },
             {
               id: 2,
               name: 'Samantha',
               number: '8',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 3,
               name: 'Sydney',
               number: '9',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 4,
               name: 'Camden',
               number: '10',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 5,
               name: 'Ayra',
               number: '11',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 6,
               name: 'Elise',
               number: '13',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 7,
               name: 'Rebecca',
               number: '15',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 8,
               name: 'Shiloh',
               number: '17',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 9,
               name: 'Penelope',
               number: '22',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 10,
               name: 'Lam',
               number: '44',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 11,
               name: 'Daniella',
               number: '48',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 12,
               name: 'Ava',
               number: '52',
-              playing: false,
+              playing: true,
               totalTime: 0
             },{
               id: 13,
               name: 'Campbell',
               number: '99',
-              playing: false,
+              playing: true,
               totalTime: 0
             }
           ];
@@ -151,6 +155,25 @@
           
           let gameClock = 0;
           const interval = 1000;
+
+          const allPlaying = document.getElementById('allPlayingButton');
+          const allBenched = document.getElementById('allBenchedButton');
+
+          // all playing button
+          allPlaying.addEventListener('click', () => {
+            for (i in roster) {
+              roster[i].playing = true;
+            }
+            renderTable();
+          });
+
+          // all benched button
+          allBenched.addEventListener('click', () => {
+            for (i in roster) {
+              roster[i].playing = false;
+            }
+            renderTable();
+          });
 
           // convert milliseconds to minutes/seconds
           const convertTime = (millis) => {
@@ -238,6 +261,8 @@
 
           // Initialize table
           renderTable();
+
+          // TODO: buttons to make everyone onbench or playing
         </script>
     </body>
 </html>
