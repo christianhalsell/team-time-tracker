@@ -1,0 +1,49 @@
+/* colors */
+.active,
+.green {
+  background-color: lightgreen;
+}
+
+.inactive,
+.red {
+  background-color: red;
+  color: #fff;
+}
+
+button {
+  background-color: cyan;
+  padding: 4px 10px;
+}
+
+/* the rest */
+.app {
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+  text-align: center;
+}
+
+thead tr{
+  background-color: #444;
+  color: #fff;
+}
+
+table button {
+  width: 100%;
+}
+
+tr.inactive-row {
+  background-color: #fdd;
+}
+
+.clock {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 6.0em; 
+}
